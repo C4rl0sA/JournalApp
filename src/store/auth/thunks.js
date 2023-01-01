@@ -3,8 +3,8 @@ import {
   logoutFirebase,
   registerUserWithEmailPassword,
   signInWithGoogle,
-} from "../../firebase/providers";
-import { checkingCredentials, login, logout } from "./authSlice";
+} from '../../firebase/providers';
+import { checkingCredentials, login, logout } from './authSlice';
 
 export const checkingAuthentication = (email, password) => {
   return async (dispatch) => {
@@ -60,5 +60,12 @@ export const startLogout = () => {
   return async (dispatch) => {
     await logoutFirebase();
     dispatch(logout({}));
+  };
+};
+
+export const startSaveNote = () => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const { active: note } = getState().journal;
   };
 };
