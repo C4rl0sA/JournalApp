@@ -63,9 +63,4 @@ export const startLogout = () => {
   };
 };
 
-export const startSaveNote = () => {
-  return async (dispatch, getState) => {
-    const { uid } = getState().auth;
-    const { active: note } = getState().journal;
-  };
-};
+
